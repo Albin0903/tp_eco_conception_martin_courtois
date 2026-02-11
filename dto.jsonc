@@ -1,0 +1,53 @@
+// Response DTO
+
+{
+    "id": 1,
+    "identifier": "bulbasaur",
+    "generation_id": 1,
+    "evolves_from_species_id": null,
+    "evolution_chain_id": 1,
+    "color": "green",
+    "shape_id": "quadruped",
+    "habitat_id": 3,
+    "gender_rate": 1,
+    "capture_rate": 45,
+    "base_happiness": 50,
+    "is_baby": false,
+    "hatch_counter": 20,
+    "has_gender_differences": false,
+    "growth_rate_id": 4,
+    "forms_switchable": false,
+    "order": 1,
+    "conquest_order": null,
+    "height": 7,
+    "weight": 69,
+    "base_experience": 64,
+    "is_default": true
+}
+
+// Request DTO (for POST and PUT requests)
+
+{
+    "id": 1,
+    "identifier": "bulbasaur",
+    "generation_id": 1,
+    "evolves_from_species_id": null,
+    "evolution_chain_id": 1,
+    "color_id": 5,
+    "shape_id": 8,
+    "habitat_id": 3,
+    "gender_rate": 1,
+    "capture_rate": 45,
+    "base_happiness": 50,
+    "is_baby": false,
+    "hatch_counter": 20,
+    "has_gender_differences": false,
+    "growth_rate_id": 4,
+    "forms_switchable": false,
+    "order": 1,
+    "conquest_order": null,
+    "height": 7,
+    "weight": 69,
+    "base_experience": 64,
+    "is_default": true
+}
