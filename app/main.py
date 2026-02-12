@@ -121,7 +121,7 @@ class PokemonResponse(BaseModel):
     evolves_from_species_id: Optional[int] = None
     evolution_chain_id: Optional[int] = None
     color: Optional[str] = None
-    shape_id: Optional[str] = None  # Correspond à l'identifiant texte
+    shape_id: Optional[str] = None
     habitat_id: Optional[int] = None
     gender_rate: Optional[int] = None
     capture_rate: Optional[int] = None
@@ -195,7 +195,7 @@ async def list_objects(
     # Récupérer les items
     query = select(Pokemon).order_by(Pokemon.id).offset((page - 1) * size).limit(size)
     result = await db.execute(query)
-    items = result.scalars().all() # .scalars() pour avoir les objets ORM
+    items = result.scalars().all()
     
     # Transformation synchrone (CPU bound, mais rapide)
     return PaginatedResponse(
@@ -272,7 +272,7 @@ async def update_object(object_id: int, data: PokemonRequest, db: AsyncSession =
         raise HTTPException(status_code=404, detail="Object not found")
 
     species = pokemon.species
-    # Mise à jour de l'espèce
+    # maj de l'espèce
     for field in [
         "identifier", "generation_id", "evolves_from_species_id", "evolution_chain_id", 
         "color_id", "shape_id", "habitat_id", "gender_rate", "capture_rate", 
@@ -280,10 +280,10 @@ async def update_object(object_id: int, data: PokemonRequest, db: AsyncSession =
         "growth_rate_id", "forms_switchable", "order", "conquest_order"
     ]:
         val = getattr(data, field)
-        if val is not None:  # Mise à jour partielle
+        if val is not None: # maj partielle
             setattr(species, field, val)
 
-    # Mise à jour du Pokémon
+    # maj du Pokémon
     pokemon.identifier = data.identifier
     pokemon.height = data.height
     pokemon.weight = data.weight
